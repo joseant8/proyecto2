@@ -39,5 +39,14 @@ class EventNotificationTest {
 
     @Test
     void confirmAttendance() {
+        assertNotNull(eventNotification);
+
+        // Si el evento es nulo, el asistente no tendrá la notificación de confirmación
+        eventNotification.confirmAttendance(null, attendee);
+        assertTrue(attendee.getNotifications().isEmpty());
+
+        // Si existe el evento, el asistente tendrá la notificación de confirmación
+        eventNotification.confirmAttendance(event, attendee);
+        assertFalse(attendee.getNotifications().isEmpty());
     }
 }
