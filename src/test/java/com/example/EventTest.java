@@ -67,6 +67,10 @@ class EventTest {
 
     @Test
     void setId() {
+        Long newId = 2L;
+        assertNotEquals(event.getId(), newId);
+        event.setId(newId);
+        assertEquals(event.getId(), newId);
     }
 
     @Test
