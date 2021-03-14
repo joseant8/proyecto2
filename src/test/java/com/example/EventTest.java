@@ -57,6 +57,10 @@ class EventTest {
 
     @Test
     void removeAttendee() {
+        event.addAttendee(attendee);
+        assertTrue(event.getAttendees().contains(attendee));
+        event.removeAttendee(attendee);
+        assertFalse(event.getAttendees().contains(attendee));
     }
 
     @Test
