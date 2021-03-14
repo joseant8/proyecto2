@@ -24,18 +24,27 @@ class EventTest {
     Event event;
 
     private Attendee attendee;
+    private Speaker speaker;
+
+    private List<Attendee> attendees;
+    private List<Speaker> speakers;
 
     @BeforeEach
     public void init(){
         event = new Event(1L, "Mobile Week", EventType.TECH, eventNotificationService);
         attendee = new Attendee(1L, "Jose", "jose@email.com");
+        speaker = new Speaker(1L, "Marta", "Nuevas tecnologías");
+
+        attendees = new ArrayList<>();
+        speakers = new ArrayList<>();
     }
 
 
     @Test
     void addAttendee() {
-
-
+        assertFalse(event.getAttendees().contains(attendee));
+        event.addAttendee(attendee);
+        assertTrue(event.getAttendees().contains(attendee));
     }
 
     @Test
@@ -112,7 +121,6 @@ class EventTest {
     @Test
     void setSpeakers() {
         Speaker newSpeaker = new Speaker(1L, "Juan", "Tecnología");
-        List<Speaker> speakers = new ArrayList<>();
         speakers.add(newSpeaker);
 
         assertTrue(event.getSpeakers().isEmpty());
@@ -129,7 +137,6 @@ class EventTest {
     @Test
     void setAttendees() {
         Attendee newAttendee = new Attendee(2L, "Antonio", "antonio@email.com");
-        List<Attendee> attendees = new ArrayList<>();
         attendees.add(newAttendee);
 
         assertTrue(event.getAttendees().isEmpty());
