@@ -123,6 +123,7 @@ class EventTest {
 
     @Test
     void getAttendees() {
+        assertNotNull(event.getAttendees());
     }
 
     @Test
