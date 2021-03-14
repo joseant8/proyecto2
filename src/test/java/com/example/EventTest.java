@@ -75,6 +75,8 @@ class EventTest {
 
     @Test
     void getTitle() {
+        assertNotNull(event.getTitle());
+        assertEquals(String.class, event.getTitle().getClass());
     }
 
     @Test
