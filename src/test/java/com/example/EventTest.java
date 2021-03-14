@@ -128,5 +128,13 @@ class EventTest {
 
     @Test
     void setAttendees() {
+        Attendee newAttendee = new Attendee(2L, "Antonio", "antonio@email.com");
+        List<Attendee> attendees = new ArrayList<>();
+        attendees.add(newAttendee);
+
+        assertTrue(event.getAttendees().isEmpty());
+        event.setAttendees(attendees);
+        assertEquals(attendees, event.getAttendees());
+        assertSame(attendees, event.getAttendees());
     }
 }
