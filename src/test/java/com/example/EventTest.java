@@ -81,6 +81,10 @@ class EventTest {
 
     @Test
     void setTitle() {
+        String newTitle = "Computer Week";
+        assertNotEquals(newTitle, event.getTitle());
+        event.setTitle(newTitle);
+        assertEquals(newTitle, event.getTitle());
     }
 
     @Test
