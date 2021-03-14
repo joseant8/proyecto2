@@ -78,6 +78,9 @@ class EventTest {
 
     @Test
     void addSpeaker() {
+        assertFalse(event.getSpeakers().contains(speaker));
+        event.addSpeaker(speaker);
+        assertTrue(event.getSpeakers().contains(speaker));
     }
 
     @Test
