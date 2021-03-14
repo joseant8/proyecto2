@@ -89,6 +89,8 @@ class EventTest {
 
     @Test
     void getType() {
+        assertNotNull(event.getType());
+        assertEquals(EventType.class, event.getType().getClass());
     }
 
     @Test
