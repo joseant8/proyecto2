@@ -95,6 +95,10 @@ class EventTest {
 
     @Test
     void setType() {
+        EventType newType = EventType.BUSINESS;
+        assertNotEquals(newType, event.getType());
+        event.setType(newType);
+        assertEquals(newType, event.getType());
     }
 
     @Test
