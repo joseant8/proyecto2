@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -110,6 +111,14 @@ class EventTest {
 
     @Test
     void setSpeakers() {
+        Speaker newSpeaker = new Speaker(1L, "Juan", "Tecnología");
+        List<Speaker> speakers = new ArrayList<>();
+        speakers.add(newSpeaker);
+
+        assertTrue(event.getSpeakers().isEmpty());
+        event.setSpeakers(speakers);
+        assertEquals(speakers, event.getSpeakers());
+        assertSame(speakers, event.getSpeakers());
     }
 
     @Test
